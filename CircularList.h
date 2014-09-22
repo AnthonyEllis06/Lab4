@@ -154,12 +154,12 @@ void CircularList<T>::remove(int index)
 	  else
 	  {
 		//use local variables
-		DoubleNode<T>*list_next = loc->getNext();
-		DoubleNode<T>*list_prev = loc->getPrev();
-		list_next->setPrev(list_prev);	
-		list_prev->setNext(list_next);
+		loc = find(index);
+		DoubleNode<T>*after = loc->getNext();
+		DoubleNode<T>*prev = loc->getPrev();
+		after->setPrev(prev);	
+		prev->setNext(after);
 		loc = loc->getNext();
-		loc_pos = index;
       }
       sze--;
    } 
